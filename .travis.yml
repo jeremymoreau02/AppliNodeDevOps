@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "8.9.4"
+
+branches:
+  only:
+    - master
+    - recette
+
+script:
+  - ng build
+  - mocha
+
+notifications:
+  email:
+    on_failure: change
+    on_success: change
