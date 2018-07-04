@@ -15,7 +15,11 @@ export class SingleUserComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
-    this.name = this.userService.getUserById(+id).name;
+    var user = this.userService.getUserById(+id)
+    if(typeof user !== "boolean"){
+      this.name = user.name;
+    }
+    
   }
 
 }
