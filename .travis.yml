@@ -9,7 +9,7 @@ branches:
 
 script:
   - ng build
-  - mocha
+  - npm test
 
 notifications:
   email:
