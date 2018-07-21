@@ -17,7 +17,7 @@ script:
   - npm test
   - cp ./Dockerfile dist/AppliToDoDevOps
   - rm -rf !(dist)
-  - ls
+  - ls dist
   - cp -r dist/AppliToDevOps/* .
   - rm -rf dist
   - ls
