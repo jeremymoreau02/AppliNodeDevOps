@@ -16,7 +16,7 @@ script:
   - npm test
   - npm install -g @angular/cli
   - ng build --prod
-  - ls
+  - ls dist
 
 notifications:
   email:
