@@ -14,10 +14,11 @@ env:
 script:
   - ng build
   - npm test
-  - git checkout recette
-  - git rm .travis.yml
-  - git commit -m "Commit from travis from recette branch"
-  - git push --force https://$GH_TOKEN@github.com/mimir02/AppliNodeDevOps.git recette:docker-recette
+
+after-script:
+  - npm install -g @angular/cli
+  - ng build
+  - ls
 
 notifications:
   email:
