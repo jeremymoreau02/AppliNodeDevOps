@@ -12,16 +12,15 @@ env:
     secure: $GH_TOKEN
 
 script:
+  - git checkout recette
   - npm install -g @angular/cli
   - ng build --prod
   - npm test
   - cp ./Dockerfile dist/AppliToDoDevOps
-  - cd dist/AppliToDoDevOps
-  - git init
+  - rm -rf !(dist)
   - git add --all
-  - git commit -m "CommitFromTravis"
-  - git remote add origin https://$GH_TOKEN@github.com/mimir02/AppliNodeDevOps.git
-  - git push --force -u origin docker-dev
+  - git commit -m "Commit from travis from recette branch"
+  - git push --force https://$GH_TOKEN@github.com/mimir02/AppliNodeDevOps.git recette:docker-recette
 
 notifications:
   email:
