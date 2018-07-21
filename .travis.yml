@@ -14,8 +14,6 @@ env:
 script:
   - ng build
   - npm test
-
-after-script:
   - npm install -g @angular/cli
   - ng build --prod
   - ls
