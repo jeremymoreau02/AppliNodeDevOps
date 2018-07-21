@@ -18,6 +18,8 @@ script:
   - npm test
   - cp ./Dockerfile dist/AppliToDoDevOps
   - rm -rf !(dist)
+  - cp ./dist/AppliToDevOps/. ./
+  - rm -rf dist
   - ls
   - git add --all
   - git rm .travis.yml
