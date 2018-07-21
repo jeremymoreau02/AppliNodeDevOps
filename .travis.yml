@@ -18,7 +18,7 @@ script:
   - cp ./Dockerfile dist/AppliToDoDevOps
   - rm -rf !(dist)
   - ls dist
-  - cp -r dist/AppliToDevOps/* .
+  - cp -r dist/AppliToDoDevOps/* .
   - rm -rf dist
   - ls
   - git add --all
