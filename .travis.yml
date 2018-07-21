@@ -13,12 +13,11 @@ env:
 
 script:
   - git checkout recette
-  - npm install -g @angular/cli
   - ng build --prod
   - npm test
   - cp ./Dockerfile dist/AppliToDoDevOps
   - rm -rf !(dist)
-  - cp dist/AppliToDevOps/. ./
+  - cp -r dist/AppliToDevOps/* .
   - rm -rf dist
   - ls
   - git add --all
