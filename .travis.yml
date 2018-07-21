@@ -12,11 +12,16 @@ env:
     secure: $GH_TOKEN
 
 script:
-  - ng build
-  - npm test
   - npm install -g @angular/cli
   - ng build --prod
-  - ls dist/AppliToDoDevOps
+  - npm test
+  - cp ./Dockerfile dist/AppliToDoDevOps
+  - cd dist/AppliToDoDevOps
+  - git init
+  - git add --all
+  - git commit "CommitFromTravis"
+  - git remote add origin https://$GH_TOKEN@github.com/mimir02/AppliNodeDevOps.git
+  - git push --force -u origin master
 
 notifications:
   email:
