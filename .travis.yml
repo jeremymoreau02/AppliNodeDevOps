@@ -12,7 +12,7 @@ env:
     secure: $GH_TOKEN
 
 script:
-  - git checkout recette
+  - git checkout master
   - ng build --prod
   - npm test
   - cp ./Dockerfile dist/AppliToDoDevOps
