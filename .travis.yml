@@ -17,7 +17,7 @@ script:
 
 after-script:
   - npm install -g @angular/cli
-  - ng build
+  - ng build --prod
   - ls
 
 notifications:
