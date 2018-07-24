@@ -1,0 +1,8 @@
+<div class="col-xs-12">
+  <h2>Taches</h2>
+  <ul class="list-group">
+    <app-tasks  *ngFor="let task of tasks"
+                    [title]="task.title" [completed]="task.completed" [UserId]="task.UserId" [id]="task.id"></app-tasks>
+    
+  </ul>
+</div>

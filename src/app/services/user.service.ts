@@ -63,7 +63,7 @@ export class UserService {
 
     getUsersFromServer() {
       this.httpClient
-        .get<any[]>('http://127.0.0.1:3000/users.json', {headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')})
+        .get<any[]>('http://127.0.0.1:3000/', {headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')})
         .subscribe(
           (response) => {
             console.log(response)

@@ -8,6 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class UsersComponent implements OnInit {
 
   @Input() userName: string;
+  @Input() lastName: string;
+  @Input() age: number;
   @Input() index: number;
   @Input() id: number;  
 
