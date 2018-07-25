@@ -60,8 +60,8 @@ RUN cd /var/www \
 
 RUN cp -R /var/www/AppliNodeDevOps/* /var/www/html
 
-CMD kill -USR1 1
+#CMD kill -USR1 1
 
-CMD service apache2 restart
+#CMD service apache2 restart
 
 WORKDIR /var/www/html
