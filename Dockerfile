@@ -1,15 +1,9 @@
 FROM mimir02/httpdalpinegitnode
 MAINTAINER Jeremy MOREAU
 
-RUN apt-get install -y openrc && apt-get install -y apache2 && rc-update add apache2 default \
+RUN apt-get install -y openrc && apt-get install -y apache2 
+RUN rc-update add apache2 default \
 && touch /run/openrc/softlevel
-
-RUN cd /var/www \
-&& git clone https://github.com/mimir02/AppliNodeDevOps.git \
-&& cd AppliNodeDevOps \
-&& git checkout docker-prod
-
-RUN cp -R /var/www/AppliNodeDevOps/* /var/www/html
 
 RUN echo '# If you just change the port or add more ports here, you will likely also \n\
 # have to change the VirtualHost statement in \n\
@@ -59,7 +53,12 @@ RUN echo '<VirtualHost *:8080> \n\
 # vim: syntax=apache ts=4 sw=4 sts=4 sr noet \n\
 ' > /etc/apache2/sites-enabled/000-default.conf
 
-RUN cat /etc/apache2/ports.conf && cat /etc/apache2/sites-enabled/000-default.conf
+RUN cd /var/www \
+&& git clone https://github.com/mimir02/AppliNodeDevOps.git \
+&& cd AppliNodeDevOps \
+&& git checkout docker-prod
+
+RUN cp -R /var/www/AppliNodeDevOps/* /var/www/html
 
 CMD kill -USR1 1
 
