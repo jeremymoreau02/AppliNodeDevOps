@@ -2,7 +2,7 @@ import { Subject } from "rxjs";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 
-var apiUrl = "http://192.168.43.138/"
+var apiUrl = "http://192.168.43.138:3000/"
 
 @Injectable()
 export class TaskService {
