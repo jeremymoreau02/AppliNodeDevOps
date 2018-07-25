@@ -61,8 +61,8 @@ RUN echo '<VirtualHost *:8080> \n\
 
 RUN cat /etc/apache2/ports.conf && cat /etc/apache2/sites-enabled/000-default.conf
 
-RUN kill -USR1 1
+CMD kill -USR1 1
 
-RUN service apache2 restart
+CMD service apache2 restart
 
 WORKDIR /var/www/html
