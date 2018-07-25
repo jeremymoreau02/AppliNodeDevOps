@@ -2,6 +2,7 @@ import { Subject } from "rxjs";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 
+var apiUrl = "http://192.168.43.138:3000/"
 
 
 @Injectable()
@@ -63,7 +64,7 @@ export class UserService {
 
     getUsersFromServer() {
       this.httpClient
-        .get<any[]>('http://127.0.0.1:3000/users.json', {headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')})
+        .get<any[]>(apiUrl, {headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')})
         .subscribe(
           (response) => {
             console.log(response)
