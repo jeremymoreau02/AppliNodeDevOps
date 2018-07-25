@@ -2,7 +2,7 @@ import { Subject } from "rxjs";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 
-
+var apiUrl = "http://192.168.43.138/"
 
 @Injectable()
 export class TaskService {
@@ -25,7 +25,7 @@ export class TaskService {
 
      getTaskById(id: number) {
          this.httpClient
-        .get<any[]>('http://127.0.0.1:3000/tasks/'+id, {headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')})
+        .get<any[]>(apiUrl+'tasks/'+id, {headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')})
         .subscribe(
           (response) => {
             this.task.push(response["User"])
@@ -43,7 +43,7 @@ export class TaskService {
 
     deleteTask(id: number) {
       this.httpClient
-     .delete<any[]>('http://127.0.0.1:3000/tasks/'+id, {headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')})
+     .delete<any[]>(apiUrl+'tasks/'+id, {headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')})
      .subscribe(
        (response) => {
          console.log(response)
@@ -62,7 +62,7 @@ export class TaskService {
         UserId: userId
       };
       this.httpClient
-      .post<any[]>('http://127.0.0.1:3000/tasks/'+id, taskObject, {headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')})
+      .post<any[]>(apiUrl+'tasks/'+id, taskObject, {headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')})
       .subscribe(
         (response) => {
           console.log(response)
@@ -89,7 +89,7 @@ export class TaskService {
         UserId: userId
       };
       this.httpClient
-        .put<any[]>('http://127.0.0.1:3000/'+userId+'/tasks', taskObject, {headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')})
+        .put<any[]>(apiUrl+userId+'/tasks', taskObject, {headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')})
         .subscribe(
           (response) => {
             console.log(response)
@@ -104,7 +104,7 @@ export class TaskService {
 
     getTasksFromServer() {
       this.httpClient
-        .get<any[]>('http://127.0.0.1:3000/tasks', {headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')})
+        .get<any[]>(apiUrl+'tasks', {headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')})
         .subscribe(
           (response) => {
             console.log(response)
