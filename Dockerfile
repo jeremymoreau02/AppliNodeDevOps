@@ -56,7 +56,7 @@ RUN echo '<VirtualHost *:8080> \n\
 RUN cd /var/www \
 && git clone https://github.com/mimir02/AppliNodeDevOps.git \
 && cd AppliNodeDevOps \
-&& git checkout docker-recette
+&& git checkout docker-dev
 
 RUN cp -R /var/www/AppliNodeDevOps/* /var/www/html
 
